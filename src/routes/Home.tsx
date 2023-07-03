@@ -1,7 +1,8 @@
 //rafce
 import React, { useState } from "react";
 import Search from "../components/Search";
-import { UserProps } from "../types/users";
+import { UserProps } from "../types/Users";
+import User from "../components/User";
 
 const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
@@ -24,7 +25,8 @@ const Home = () => {
   return (
     <div>
       <Search loadUser={loadUser} />
-      {user && <p>{user.login}</p>}
+      {/* {...user} == spread operator */}
+      {user && <User {...user} />}
     </div>
   );
 };
