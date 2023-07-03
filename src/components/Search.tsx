@@ -1,14 +1,25 @@
-import React from "react";
+type SearchProps = {
+  //func chamada loadUser que recebe uma string e retorna
+  //uma promise void
+  loadUser: (userName: string) => Promise<void>;
+};
+
+import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 
-const Search = () => {
+const Search = ({ loadUser }: SearchProps) => {
+  const [userName, setUserName] = useState("");
   return (
     <div>
       <h2>Search user</h2>
       <p>repositiories</p>
       <div>
-        <input type="text" placeholder="Type account name" />
-        <button>
+        <input
+          type="text"
+          placeholder="Type account name"
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <button onClick={() => loadUser(userName)}>
           <BsSearch />
         </button>
       </div>
