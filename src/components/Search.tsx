@@ -6,14 +6,15 @@ type SearchProps = {
 
 import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import classes from "./Search.module.css";
 
 const Search = ({ loadUser }: SearchProps) => {
   const [userName, setUserName] = useState("");
   return (
-    <div>
+    <div className={classes.search}>
       <h2>Search user</h2>
       <p>repositiories</p>
-      <div>
+      <div className={classes.search_container}>
         <input
           type="text"
           placeholder="Type account name"
